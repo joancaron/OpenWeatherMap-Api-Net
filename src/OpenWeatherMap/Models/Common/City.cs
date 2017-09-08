@@ -50,5 +50,14 @@ namespace OpenWeatherMap
         /// </value>
         [XmlElement("sun")]
         public Sun Sun { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the sun.
+        /// </summary>
+        /// <value>
+        ///     The sun.
+        /// </value>
+        [XmlElement("country")]
+        public string Country { get; set; }
     }
 }

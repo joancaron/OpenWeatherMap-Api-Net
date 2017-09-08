@@ -1,12 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeatherMap", "OpenWeatherMap\OpenWeatherMap.csproj", "{8069FC89-87EB-4849-AA1E-2679D660A165}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeatherMap.Tests", "OpenWeatherMap.Tests\OpenWeatherMap.Tests.csproj", "{515E3C1F-2343-473A-827D-9E743A2269AF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{650C0608-FB2E-42B3-9C8F-D77B54447885}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -20,22 +16,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeatherMap.Net45", "Ope
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeatherMap.Net45.Tests", "OpenWeatherMap.Net45.Tests\OpenWeatherMap.Net45.Tests.csproj", "{2945EA1A-7F71-4859-8A45-0DA2D2EDFB8A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Portable", "Portable", "{ABBE39B0-B3C2-4EF8-AE28-852623FB891C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenWeatherMap.NetStandard", "OpenWeatherMap.NetStandard\OpenWeatherMap.NetStandard.csproj", "{E4B6A5A1-C5D0-488D-8D6A-821E390829CB}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenWeatherMap", "OpenWeatherMap\OpenWeatherMap.shproj", "{E1134CEA-0E46-432F-A230-A879A7851CDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetStandard", "NetStandard", "{C85942F4-FE52-496A-8ABE-0D1907B2343A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenWeatherMap.Tests", "OpenWeatherMap.Tests\OpenWeatherMap.Tests.shproj", "{0C131643-BD25-405F-8B63-291B819C2941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeatherMap.NetStandard.Tests", "OpenWeatherMap.NetStandard.Tests\OpenWeatherMap.NetStandard.Tests.csproj", "{EBCD1EC0-09EA-4757-ADE3-23303B813AAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{931655C0-6B8E-49BE-8518-EB138FEC89CF}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		OpenWeatherMap.Tests\OpenWeatherMap.Tests.projitems*{0c131643-bd25-405f-8b63-291b819c2941}*SharedItemsImports = 13
+		OpenWeatherMap.Tests\OpenWeatherMap.Tests.projitems*{2945ea1a-7f71-4859-8a45-0da2d2edfb8a}*SharedItemsImports = 4
+		OpenWeatherMap\OpenWeatherMap.projitems*{e1134cea-0e46-432f-a230-a879a7851cda}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8069FC89-87EB-4849-AA1E-2679D660A165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8069FC89-87EB-4849-AA1E-2679D660A165}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8069FC89-87EB-4849-AA1E-2679D660A165}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8069FC89-87EB-4849-AA1E-2679D660A165}.Release|Any CPU.Build.0 = Release|Any CPU
-		{515E3C1F-2343-473A-827D-9E743A2269AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{515E3C1F-2343-473A-827D-9E743A2269AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{515E3C1F-2343-473A-827D-9E743A2269AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{515E3C1F-2343-473A-827D-9E743A2269AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2B0E4BAD-7158-4528-AD34-59CC2C109EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B0E4BAD-7158-4528-AD34-59CC2C109EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B0E4BAD-7158-4528-AD34-59CC2C109EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +47,14 @@ Global
 		{2945EA1A-7F71-4859-8A45-0DA2D2EDFB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2945EA1A-7F71-4859-8A45-0DA2D2EDFB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2945EA1A-7F71-4859-8A45-0DA2D2EDFB8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4B6A5A1-C5D0-488D-8D6A-821E390829CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B6A5A1-C5D0-488D-8D6A-821E390829CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4B6A5A1-C5D0-488D-8D6A-821E390829CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4B6A5A1-C5D0-488D-8D6A-821E390829CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBCD1EC0-09EA-4757-ADE3-23303B813AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBCD1EC0-09EA-4757-ADE3-23303B813AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBCD1EC0-09EA-4757-ADE3-23303B813AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBCD1EC0-09EA-4757-ADE3-23303B813AAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,7 +62,12 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2B0E4BAD-7158-4528-AD34-59CC2C109EE0} = {A162F443-A3A8-46BA-92D0-09FF48005C30}
 		{2945EA1A-7F71-4859-8A45-0DA2D2EDFB8A} = {A162F443-A3A8-46BA-92D0-09FF48005C30}
-		{8069FC89-87EB-4849-AA1E-2679D660A165} = {ABBE39B0-B3C2-4EF8-AE28-852623FB891C}
-		{515E3C1F-2343-473A-827D-9E743A2269AF} = {ABBE39B0-B3C2-4EF8-AE28-852623FB891C}
+		{E4B6A5A1-C5D0-488D-8D6A-821E390829CB} = {C85942F4-FE52-496A-8ABE-0D1907B2343A}
+		{E1134CEA-0E46-432F-A230-A879A7851CDA} = {931655C0-6B8E-49BE-8518-EB138FEC89CF}
+		{0C131643-BD25-405F-8B63-291B819C2941} = {931655C0-6B8E-49BE-8518-EB138FEC89CF}
+		{EBCD1EC0-09EA-4757-ADE3-23303B813AAD} = {C85942F4-FE52-496A-8ABE-0D1907B2343A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBCB260E-28A5-4A17-A2C6-8ECF329B3913}
 	EndGlobalSection
 EndGlobal

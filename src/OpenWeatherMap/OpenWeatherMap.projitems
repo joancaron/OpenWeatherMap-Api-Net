@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e1134cea-0e46-432f-a230-a879a7851cda</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>OpenWeatherMap.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\ApiClientBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\CurrentWeatherClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\ForecastClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\IApiClientBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\ICurrentWeatherClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\IForecastClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\ISearchClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\SearchClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\OpenWeatherMapException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DictionnaryExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\UriExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Ensure.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\IOpenWeatherMapRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\OpenWeatherMapRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IOpenWeatherMapClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\City.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Clouds.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Coordinates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Direction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Humidity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\LastUpdate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\MetricSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\OpenWeatherMapLanguage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Precipitation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Pressure.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Speed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Sun.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Temperature.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Weather.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\WeatherItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Common\Wind.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CurrentWeather\CurrentWeatherResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\CityLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\ForecastClouds.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\ForecastData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\ForecastPrecipitation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\ForecastResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\ForecastTime.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\Location.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\Meta.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\Symbol.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\WindDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Forecast\WindSpeed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Search\Accuracy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Search\SearchResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Search\SearchResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OpenWeatherMapClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)OpenWeatherMap.snk" />
+  </ItemGroup>
+</Project>

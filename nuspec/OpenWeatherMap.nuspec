@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>OpenWeatherMap</id>
+    <title>OpenWeatherMap</title>
+    <authors>Joan Caron</authors>
+    <licenseUrl>https://github.com/joancaron/OpenWeatherMap-Api-Net/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/joancaron/OpenWeatherMap-Api-Net/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This project is a fully asynchronous .NET library for interacting with the great OpenWeatherMap API.</description>
+    <language>en-US</language>
+    <copyright>Copyright © Joan Caron 2014</copyright>
+    <tags>openweather weather</tags>
+  </metadata>
+  <files>
+    <!-- NetStandard 1.1 -->
+    <file src="../src/bin/Release/netstandard1.1/OpenWeatherMap.dll" target="lib/netstandard1.1" />
+  </files>
+</package>

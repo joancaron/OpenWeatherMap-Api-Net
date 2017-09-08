@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace OpenWeatherMap.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class SearchClientTests : OpenWeatherMapTestsBase
     {
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_By_City_Name()
         {
             var result = await OpenWeatherMapTestClient.Search.GetByName(CityName);
@@ -16,17 +16,17 @@ namespace OpenWeatherMap.Tests
             Assert.IsTrue(result.List.FirstOrDefault(x => x.City.Name == CityName) != null);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_By_City_Name_MetricSystem()
         {
             var result = await OpenWeatherMapTestClient.Search.GetByName(CityName, MetricSystem.Metric);
             TestAllProperties(result);
             Assert.IsTrue(result.Mode == "name");
             Assert.IsTrue(result.List.FirstOrDefault(x => x.City.Name == CityName) != null);
-            Assert.IsTrue(result.List.FirstOrDefault(x => x.Temperature.Unit == Metric) != null);
+            Assert.IsTrue(result.List.FirstOrDefault(x => x.Temperature.Unit == Celsius) != null);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_By_City_Name_MetricSystem_Language()
         {
             var resultIt = await OpenWeatherMapTestClient.Search.GetByName(CityName, MetricSystem.Metric, OpenWeatherMapLanguage.IT);
@@ -45,14 +45,13 @@ namespace OpenWeatherMap.Tests
             Assert.AreNotEqual(resultFr.List.First().Weather.Value, resultIt.List.First().Weather.Value);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(OpenWeatherMapException))]
-        public async Task Can_Get_Search_By_City_Name_Exception()
+        [Test]
+        public void Can_Get_Search_By_City_Name_Exception()
         {
-            var result = await OpenWeatherMapTestClient.CurrentWeather.GetByName("abcdefgh");
+            Assert.ThrowsAsync<OpenWeatherMapException>(() => OpenWeatherMapTestClient.CurrentWeather.GetByName("abcdefgh"));
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_By_City_Coordinates()
         {
             var result = await OpenWeatherMapTestClient.Search.GetByCoordinates(new Coordinates { Latitude = Latitude, Longitude = Longitude });
@@ -61,7 +60,7 @@ namespace OpenWeatherMap.Tests
             Assert.IsTrue(result.List.FirstOrDefault(x => x.City.Name == CityName) != null);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_By_City_Coordinates_MetricSystem()
         {
             var result = await OpenWeatherMapTestClient.Search.GetByCoordinates(
@@ -70,10 +69,10 @@ namespace OpenWeatherMap.Tests
             TestAllProperties(result);
             Assert.IsTrue(result.Mode == "center");
             Assert.IsTrue(result.List.FirstOrDefault(x => x.City.Name == CityName) != null);
-            Assert.IsTrue(result.List.FirstOrDefault(x => x.Temperature.Unit == Metric) != null);
+            Assert.IsTrue(result.List.FirstOrDefault(x => x.Temperature.Unit == Celsius) != null);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_By_City_Coordinates_MetricSystem_Language()
         {
             var resultIt = await OpenWeatherMapTestClient.Search.GetByCoordinates(
@@ -97,15 +96,14 @@ namespace OpenWeatherMap.Tests
             Assert.AreNotEqual(resultIt.List.First().Weather.Value, resultFr.List.First().Weather.Value);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(OpenWeatherMapException))]
-        public async Task Can_Get_Search_By_Coordinates_Exception()
+        [Test]
+        public void Can_Get_Search_By_Coordinates_Exception()
         {
-            var result = await OpenWeatherMapTestClient.CurrentWeather.GetByCoordinates(
-                new Coordinates { Latitude = -9999, Longitude = -9999 });
+            Assert.ThrowsAsync<OpenWeatherMapException>(() => OpenWeatherMapTestClient.CurrentWeather.GetByCoordinates(
+                new Coordinates { Latitude = -9999, Longitude = -9999 }));
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_Count()
         {
             var result = await OpenWeatherMapTestClient.Search.GetByCoordinates(
@@ -117,7 +115,7 @@ namespace OpenWeatherMap.Tests
             Assert.IsTrue(result.List.Count() == 2);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Search_Accurate()
         {
             var resultAccurate = await OpenWeatherMapTestClient.Search.GetByName(

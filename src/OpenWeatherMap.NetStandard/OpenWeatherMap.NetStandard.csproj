@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <AssemblyName>OpenWeatherMap</AssemblyName>
+    <RootNamespace>OpenWeatherMap</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\bin\Debug</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\bin\Release</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\OpenWeatherMap\Clients\ApiClientBase.cs" Link="Clients\ApiClientBase.cs" />
+    <Compile Include="..\OpenWeatherMap\Clients\CurrentWeatherClient.cs" Link="Clients\CurrentWeatherClient.cs" />
+    <Compile Include="..\OpenWeatherMap\Clients\ForecastClient.cs" Link="Clients\ForecastClient.cs" />
+    <Compile Include="..\OpenWeatherMap\Clients\IApiClientBase.cs" Link="Clients\IApiClientBase.cs" />
+    <Compile Include="..\OpenWeatherMap\Clients\ICurrentWeatherClient.cs" Link="Clients\ICurrentWeatherClient.cs" />
+    <Compile Include="..\OpenWeatherMap\Clients\IForecastClient.cs" Link="Clients\IForecastClient.cs" />
+    <Compile Include="..\OpenWeatherMap\Clients\ISearchClient.cs" Link="Clients\ISearchClient.cs" />
+    <Compile Include="..\OpenWeatherMap\Clients\SearchClient.cs" Link="Clients\SearchClient.cs" />
+    <Compile Include="..\OpenWeatherMap\Exceptions\OpenWeatherMapException.cs" Link="Exceptions\OpenWeatherMapException.cs" />
+    <Compile Include="..\OpenWeatherMap\Extensions\DictionnaryExtensions.cs" Link="Extensions\DictionnaryExtensions.cs" />
+    <Compile Include="..\OpenWeatherMap\Extensions\StringExtensions.cs" Link="Extensions\StringExtensions.cs" />
+    <Compile Include="..\OpenWeatherMap\Extensions\UriExtensions.cs" Link="Extensions\UriExtensions.cs" />
+    <Compile Include="..\OpenWeatherMap\Helpers\Ensure.cs" Link="Helpers\Ensure.cs" />
+    <Compile Include="..\OpenWeatherMap\Helpers\IOpenWeatherMapRequest.cs" Link="Helpers\IOpenWeatherMapRequest.cs" />
+    <Compile Include="..\OpenWeatherMap\Helpers\OpenWeatherMapRequest.cs" Link="Helpers\OpenWeatherMapRequest.cs" />
+    <Compile Include="..\OpenWeatherMap\IOpenWeatherMapClient.cs" Link="IOpenWeatherMapClient.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\City.cs" Link="Models\Common\City.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Clouds.cs" Link="Models\Common\Clouds.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Coordinates.cs" Link="Models\Common\Coordinates.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Direction.cs" Link="Models\Common\Direction.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Humidity.cs" Link="Models\Common\Humidity.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\LastUpdate.cs" Link="Models\Common\LastUpdate.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\MetricSystem.cs" Link="Models\Common\MetricSystem.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\OpenWeatherMapLanguage.cs" Link="Models\Common\OpenWeatherMapLanguage.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Precipitation.cs" Link="Models\Common\Precipitation.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Pressure.cs" Link="Models\Common\Pressure.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Speed.cs" Link="Models\Common\Speed.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Sun.cs" Link="Models\Common\Sun.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Temperature.cs" Link="Models\Common\Temperature.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Weather.cs" Link="Models\Common\Weather.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\WeatherItem.cs" Link="Models\Common\WeatherItem.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Common\Wind.cs" Link="Models\Common\Wind.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\CurrentWeather\CurrentWeatherResponse.cs" Link="Models\CurrentWeather\CurrentWeatherResponse.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\CityLocation.cs" Link="Models\Forecast\CityLocation.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\ForecastClouds.cs" Link="Models\Forecast\ForecastClouds.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\ForecastData.cs" Link="Models\Forecast\ForecastData.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\ForecastPrecipitation.cs" Link="Models\Forecast\ForecastPrecipitation.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\ForecastResponse.cs" Link="Models\Forecast\ForecastResponse.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\ForecastTime.cs" Link="Models\Forecast\ForecastTime.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\Location.cs" Link="Models\Forecast\Location.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\Meta.cs" Link="Models\Forecast\Meta.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\Symbol.cs" Link="Models\Forecast\Symbol.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\WindDirection.cs" Link="Models\Forecast\WindDirection.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Forecast\WindSpeed.cs" Link="Models\Forecast\WindSpeed.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Search\Accuracy.cs" Link="Models\Search\Accuracy.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Search\SearchResponse.cs" Link="Models\Search\SearchResponse.cs" />
+    <Compile Include="..\OpenWeatherMap\Models\Search\SearchResult.cs" Link="Models\Search\SearchResult.cs" />
+    <Compile Include="..\OpenWeatherMap\OpenWeatherMapClient.cs" Link="OpenWeatherMapClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Clients\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\Common\" />
+    <Folder Include="Models\CurrentWeather\" />
+    <Folder Include="Models\Forecast\" />
+    <Folder Include="Models\Search\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace OpenWeatherMap.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class ForecastClientTests : OpenWeatherMapTestsBase
     {
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Name()
         {
             var result = await OpenWeatherMapTestClient.Forecast.GetByName(CityName);
@@ -15,16 +15,16 @@ namespace OpenWeatherMap.Tests
             Assert.AreEqual(CityName, result.Location.Name);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Name_MetricSystem()
         {
             var result = await OpenWeatherMapTestClient.Forecast.GetByName(CityName, false, MetricSystem.Metric);
             TestAllProperties(result);
             Assert.AreEqual(CityName, result.Location.Name);
-            Assert.AreEqual(Metric, result.Forecast[0].Temperature.Unit);
+            Assert.AreEqual(Celsius, result.Forecast[0].Temperature.Unit);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Name_MetricSystem_Language()
         {
             var resultIt = await OpenWeatherMapTestClient.Forecast.GetByName(CityName, false, MetricSystem.Metric, OpenWeatherMapLanguage.IT);
@@ -33,19 +33,18 @@ namespace OpenWeatherMap.Tests
             TestAllProperties(resultFr);
             Assert.AreEqual(CityName, resultIt.Location.Name);
             Assert.AreEqual(CityName, resultFr.Location.Name);
-            Assert.AreEqual(Metric, resultIt.Forecast.First().Temperature.Unit);
-            Assert.AreEqual(Metric, resultFr.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, resultIt.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, resultFr.Forecast.First().Temperature.Unit);
             Assert.AreNotEqual(resultFr.Forecast.First().Symbol.Name, resultIt.Forecast.First().Symbol.Name);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(OpenWeatherMapException))]
-        public async Task Can_Get_Forecast_By_City_Name_Exception()
+        [Test]
+        public void Can_Get_Forecast_By_City_Name_Exception()
         {
-            var result = await OpenWeatherMapTestClient.Forecast.GetByName("abcdefgh");
+            Assert.ThrowsAsync<OpenWeatherMapException>(() => OpenWeatherMapTestClient.Forecast.GetByName("abcdefgh"));
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Coordinates()
         {
             var result = await OpenWeatherMapTestClient.Forecast.GetByCoordinates(new Coordinates { Latitude = Latitude, Longitude = Longitude });
@@ -55,7 +54,7 @@ namespace OpenWeatherMap.Tests
             //Assert.AreEqual(Longitude, result.Location.CityLocation.Longitude);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Coordinates_MetricSystem()
         {
             var result = await OpenWeatherMapTestClient.Forecast.GetByCoordinates(
@@ -66,10 +65,10 @@ namespace OpenWeatherMap.Tests
             //Latitude and longitude are not the same...
             //Assert.AreEqual(Latitude, result.Location.CityLocation.Latitude);
             //Assert.AreEqual(Longitude, result.Location.CityLocation.Longitude);
-            Assert.AreEqual(Metric, result.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, result.Forecast.First().Temperature.Unit);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Coordinates_MetricSystem_Language()
         {
             var resultIt = await OpenWeatherMapTestClient.Forecast.GetByCoordinates(
@@ -91,20 +90,19 @@ namespace OpenWeatherMap.Tests
             //Assert.AreEqual(Latitude, resultFr.Location.CityLocation.Latitude);
             //Assert.AreEqual(Longitude, resultIt.Location.CityLocation.Longitude);
             //Assert.AreEqual(Longitude, resultFr.Location.CityLocation.Longitude);
-            Assert.AreEqual(Metric, resultIt.Forecast.First().Temperature.Unit);
-            Assert.AreEqual(Metric, resultFr.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, resultIt.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, resultFr.Forecast.First().Temperature.Unit);
             Assert.AreNotEqual(resultFr.Forecast.First().Symbol.Name, resultIt.Forecast[0].Symbol.Name);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(OpenWeatherMapException))]
-        public async Task Can_Get_Forecast_By_Coordinates_Exception()
+        [Test]
+        public void Can_Get_Forecast_By_Coordinates_Exception()
         {
-            var result = await OpenWeatherMapTestClient.Forecast.GetByCoordinates(
-                new Coordinates { Latitude = -9999, Longitude = -9999 });
+            Assert.ThrowsAsync<OpenWeatherMapException>(() => OpenWeatherMapTestClient.Forecast.GetByCoordinates(
+                new Coordinates { Latitude = -9999, Longitude = -9999 }));
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Id()
         {
             var result = await OpenWeatherMapTestClient.Forecast.GetByCityId(CityId);
@@ -112,34 +110,33 @@ namespace OpenWeatherMap.Tests
             //No Id provided by api
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_By_City_Id_MetricSystem()
         {
             var result = await OpenWeatherMapTestClient.Forecast.GetByCityId(CityId, false, MetricSystem.Metric);
             TestAllProperties(result);
-            Assert.AreEqual(Metric, result.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, result.Forecast.First().Temperature.Unit);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_CurrentWeather_By_City_Id_MetricSystem_Language()
         {
             var resultIt = await OpenWeatherMapTestClient.Forecast.GetByCityId(CityId, false, MetricSystem.Metric, OpenWeatherMapLanguage.IT);
             var resultFr = await OpenWeatherMapTestClient.Forecast.GetByCityId(CityId, false, MetricSystem.Metric, OpenWeatherMapLanguage.FR);
             TestAllProperties(resultIt);
             TestAllProperties(resultFr);
-            Assert.AreEqual(Metric, resultIt.Forecast.First().Temperature.Unit);
-            Assert.AreEqual(Metric, resultFr.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, resultIt.Forecast.First().Temperature.Unit);
+            Assert.AreEqual(Celsius, resultFr.Forecast.First().Temperature.Unit);
             Assert.AreNotEqual(resultFr.Forecast[0].Symbol.Name, resultIt.Forecast[0].Symbol.Name);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(OpenWeatherMapException))]
-        public async Task Can_Get_Forecast_By_City_Id_Exception()
+        [Test]
+        public void Can_Get_Forecast_By_City_Id_Exception()
         {
-            var result = await OpenWeatherMapTestClient.CurrentWeather.GetByCityId(-123);
+            Assert.ThrowsAsync<OpenWeatherMapException>(() => OpenWeatherMapTestClient.CurrentWeather.GetByCityId(-123));
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_Daily()
         {
             var result = await OpenWeatherMapTestClient.Forecast.GetByName(CityName, true);
@@ -148,7 +145,7 @@ namespace OpenWeatherMap.Tests
             Assert.IsTrue(result.Forecast.Count() == 7);
         }
 
-        [TestMethod]
+        [Test]
         public async Task Can_Get_Forecast_With_Count()
         {
             //Available only for daily queries

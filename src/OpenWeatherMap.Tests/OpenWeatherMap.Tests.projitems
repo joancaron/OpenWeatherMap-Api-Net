@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0c131643-bd25-405f-8b63-291b819c2941</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>OpenWeatherMap.Tests</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CurrentWeatherClientTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ForecastClientTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OpenWeatherMapTestsBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SearchClientTests.cs" />
+  </ItemGroup>
+</Project>
